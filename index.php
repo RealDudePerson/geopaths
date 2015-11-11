@@ -1,5 +1,7 @@
+<?php
+    include "functions.php";
+?>
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta charset="utf-8">
@@ -18,6 +20,10 @@
     </div>
     <div class="outer-wrapper">
         Main Section
+        <?php
+            $output = getCacheData("cache01.txt");
+            echo $output;
+        ?>
     </div>
     <div class="footer">
         Footer
