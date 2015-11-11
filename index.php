@@ -22,7 +22,11 @@
         Main Section
         <?php
             $output = getCacheData("cache01.txt");
-            echo $output;
+            if(!$output){
+                echo "No file exists";
+            }else{
+                echo $output;
+            }
         ?>
     </div>
     <div class="footer">
