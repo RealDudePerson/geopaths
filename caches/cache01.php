@@ -16,7 +16,7 @@
                 $date = $_POST['date'];
                 $location = $_POST['location'];
                 $comments = $_POST['date'];
-                addTextToFile("cache01.txt",$name,$date,$location,$comments);
+                addTextToFile("../cache01.txt",$name,$date,$location,$comments);
             }else{
                 displayInputForm("cache01.php?password=$password",$password);
             }
