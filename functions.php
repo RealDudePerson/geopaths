@@ -53,11 +53,19 @@
     function addTextToFile($textFile,$name,$date,$location,$comments){
         if(is_writable($textFile)){
             $cache = fopen($textFile,"a");
-            //use str_replace to get rid of all existing '|' symbols
+            //use str_replace to get rid of all existing '|' '<' '>' symbols
             $name = str_replace("|","-",$name);
             $date = str_replace("|","-",$date);
             $location = str_replace("|","-",$location);
             $comments = str_replace("|","-",$comments);
+            $name = str_replace("<","",$name);
+            $date = str_replace("<","",$date);
+            $location = str_replace("<","",$location);
+            $comments = str_replace("<","",$comments);
+            $name = str_replace(">","",$name);
+            $date = str_replace(">","",$date);
+            $location = str_replace(">","",$location);
+            $comments = str_replace(">","",$comments);
             //build the line to insert into the text file
             $output = $name."|".$date."|".$location."|".$comments."\n";
             fwrite($cache, $output);
@@ -65,6 +73,20 @@
         }else{
             echo "File Not Writable";
         }
+    }
+    
+    //This will print the header for the site
+    function printHeader(){
+        
+    }
+    
+    //This will print the body
+    function printBody(){
+        
+    }
+    
+    //This will print the footer for the site
+    function printFooter(){
         
     }
 ?>
