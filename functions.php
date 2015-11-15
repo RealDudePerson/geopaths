@@ -75,6 +75,23 @@
         }
     }
     
+    //This will print the html head
+    function printHead($title,$path){
+        $htmlHead =
+"   <head>
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=yes'>
+        <title>$title</title>
+        <link rel='stylesheet' type='text/css' href='../css/main.css'>
+        <link rel='shortcut icon' href='".$path."favicon.ico'>
+        <script src='".$path."scripts/jquery-2.1.4.min.js'></script>
+        <script src='".$path."scripts/smooth-scroll.js'></script>
+        <script src='".$path."scripts/main.js'></script>
+    </head>
+    ";
+        echo $htmlHead;
+    }
+    
     //This will print the header for the site
     function printHeader(){
         
@@ -88,5 +105,33 @@
     //This will print the footer for the site
     function printFooter(){
         
+    }
+    
+    /**For this function you need to send the password plaintext and the hash to compare it to
+     *If they password matches, then the function returns true, else returns false
+     */
+    function testPassword($password,$hash){
+        $returnVal = false;
+        if(password_verify($password,$hash)){
+            $returnVal = true;
+        }
+        return $returnVal;
+    }
+    function displayInputForm($submitPage,$password){
+        $inputForm =
+        "<form action='$submitPage' method='post'>
+        <label for='name'>Name:</label>
+        <input type='text' name='name' id='name'>
+        <label for='date'>Date:</label>
+        <input type='text' name='date' id='date'>
+        <label for='location'>Location:</label>
+        <input type='text' name='location' id='location'>
+        <label for='comments'>Comments:</label>
+        <input type='text' name='comments' id='comments'>
+        <input type='password' value='$password' name='password' style='display:none'>
+        <input type='submit' value='Submit'>
+        </form>
+        ";
+        echo $inputForm;
     }
 ?>
