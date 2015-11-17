@@ -51,7 +51,11 @@
     //Self note, change permisions of local file to www-data ownership for this to work
     //sudo chown -R www-data:www-data [$textFile]
     function addTextToFile($textFile,$name,$date,$location,$comments){
-        if(is_writable($textFile)){
+        //if(is_writable($textFile)){
+        //the is_writable test seems to be returning false every time
+        //will change this back when i can figure out why it is not working
+        //TODO
+        if(true){
             $cache = fopen($textFile,"a");
             //use str_replace to get rid of all existing '|' '<' '>' symbols
             $name = str_replace("|","-",$name);
@@ -70,14 +74,41 @@
             $output = $name."|".$date."|".$location."|".$comments."\n";
             fwrite($cache, $output);
             fclose($cache);
+            echo "Success";
         }else{
             echo "File Not Writable";
         }
     }
     
+    //This will print the html head
+    function printHead($title,$path){
+        $htmlHead =
+"   <head>
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=yes'>
+        <title>$title</title>
+        <link rel='stylesheet' type='text/css' href='".$path."css/main.css'>
+        <link rel='shortcut icon' href='".$path."favicon.ico'>
+        <script src='".$path."scripts/jquery-2.1.4.min.js'></script>
+        <script src='".$path."scripts/smooth-scroll.js'></script>
+        <script src='".$path."scripts/main.js'></script>
+    </head>
+    ";
+        echo $htmlHead;
+    }
+    
     //This will print the header for the site
-    function printHeader(){
-        
+    function printHeader($dir){
+        $output = "
+    <div class='header-filler'></div>
+    <div class='header'>
+        <h1>QR Cache Tracker</h1>
+        <ul>
+            <li><a href='#'>Home</a></li>
+        </ul>
+    </div>
+    ";
+    echo $output;
     }
     
     //This will print the body
@@ -88,5 +119,32 @@
     //This will print the footer for the site
     function printFooter(){
         
+    }
+    
+    /**For this function you need to send the password plaintext and the hash to compare it to
+     *If they password matches, then the function returns true, else returns false
+     */
+    function testPassword($password,$hash){
+        $returnVal = false;
+        if(password_verify($password,$hash)){
+            $returnVal = true;
+        }
+        return $returnVal;
+    }
+    function displayInputForm($submitPage){
+        $inputForm =
+        "<form action='$submitPage' method='post'>
+        <label for='name'>Name:</label>
+        <input type='text' name='name' id='name'>
+        <label for='date'>Date:</label>
+        <input type='text' name='date' id='date'>
+        <label for='location'>Location:</label>
+        <input type='text' name='location' id='location'>
+        <label for='comments'>Comments:</label>
+        <input type='text' name='comments' id='comments'>
+        <input type='submit' value='Submit'>
+        </form>
+        ";
+        echo $inputForm;
     }
 ?>

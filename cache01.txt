@@ -1,4 +1,0 @@
-Name|Date|Location|Comments
-daniel|12/22/1993|fallbrook|No comment
-dummy|no date|places|n/a
-dummy|no date|places|n/a

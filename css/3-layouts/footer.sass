@@ -1,2 +1,10 @@
+@import 'variables'
 .footer
-    background-color: green
+    text-align: center
+    height: 30px
+    padding-top: 5px
+    background-color: $footer-color
+    background: -moz-linear-gradient(top, $body-color 0%, $footer-color 20%, $footer-color 100%)
+    background: -webkit-linear-gradient(top, $body-color 0%,$footer-color 20%,$footer-color 100%)
+    background: linear-gradient(to bottom, $body-color 0%,$footer-color 20%,$footer-color 100%)
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$body-color', endColorstr='$footer-color',GradientType=0 )

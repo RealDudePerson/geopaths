@@ -1,2 +1,25 @@
+@import 'variables'
+$header-height: 35px
 .header
-    background-color: lightblue
+    width: 100%
+    height: $header-height
+    background-color: $header-color
+    position: fixed
+    top: 0
+    h1
+        font-size: modular-scale(2)
+        display: inline-block
+        border-right: 1px solid black
+        padding: 0 5px
+        color: $header-title-color
+    ul
+        display: inline-block
+        li
+            display: inline-block
+            padding: 0 5px
+            font-size: 1.3em
+            a
+                color: #333
+.header-filler
+    display: block
+    height: $header-height
