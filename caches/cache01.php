@@ -2,11 +2,15 @@
 <html>
 <?php
     require "../functions.php";
+    
+    //cacheNum is a variable holding the string for whatever number cache it is change for each file
+    $cacheNum = "cache01";
+    
     $password = $_GET['password'];
     //change the hash for every new cache page
     $passIsCorrect = testPassword($password,'$2y$10$uxQtb6qRwmibv0UiiqCVaOin6s3ePnNzNS61RBbD/0PlFcWbEO0OG');
-    //change the title for every new cache page
-    printHead("Cache01 Found","../");
+    
+    printHead("$cacheNum Found","../");
 ?>
 <body>
     <?php
@@ -20,13 +24,12 @@
                 $date = $_POST['date'];
                 $location = $_POST['location'];
                 $comments = $_POST['comments'];
-                addTextToFile("../cache01.txt",$name,$date,$location,$comments);
+                addTextToFile("../$cacheNum.txt",$name,$date,$location,$comments);
             }else{
-                displayInputForm("cache01.php?password=$password",$password);
+                displayInputForm("$cacheNum.php?password=$password");
             }
         }else{
             echo 'incorrect password';
-            
         }
     ?>
 </body>

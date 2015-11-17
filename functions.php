@@ -98,8 +98,17 @@
     }
     
     //This will print the header for the site
-    function printHeader(){
-        
+    function printHeader($dir){
+        $output = "
+    <div class='header-filler'></div>
+    <div class='header'>
+        <h1>QR Cache Tracker</h1>
+        <ul>
+            <li><a href='#'>Home</a></li>
+        </ul>
+    </div>
+    ";
+    echo $output;
     }
     
     //This will print the body
@@ -122,7 +131,7 @@
         }
         return $returnVal;
     }
-    function displayInputForm($submitPage,$password){
+    function displayInputForm($submitPage){
         $inputForm =
         "<form action='$submitPage' method='post'>
         <label for='name'>Name:</label>
@@ -133,7 +142,6 @@
         <input type='text' name='location' id='location'>
         <label for='comments'>Comments:</label>
         <input type='text' name='comments' id='comments'>
-        <input type='password' value='$password' name='password' style='display:none'>
         <input type='submit' value='Submit'>
         </form>
         ";

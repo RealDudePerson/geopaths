@@ -10,9 +10,10 @@
 </head>
 
 <body>
-    <div class="header">
-        Header
-    </div>
+    <?php
+        printHeader("");
+    ?>
+    <div class="body">
     <div class="outer-wrapper">
         Main Section
         <?php
@@ -23,6 +24,7 @@
                 echo $output;
             }
         ?>
+    </div>
     </div>
     <div class="footer">
         Footer
