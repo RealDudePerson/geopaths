@@ -10,6 +10,10 @@
 ?>
 <body>
     <?php
+        //sleep(1) delays the page for one second before testing the password
+        //I am no genius but I feel like this will mitigate spam from trying to
+        //"brute-force" the correct password
+        sleep(1);
         if($passIsCorrect){
             if(isset($_POST['name']) && isset($_POST['date']) && isset($_POST['location'])){
                 $name = $_POST['name'];
@@ -22,6 +26,7 @@
             }
         }else{
             echo 'incorrect password';
+            
         }
     ?>
 </body>
