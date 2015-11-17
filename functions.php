@@ -87,7 +87,7 @@
         <meta charset='utf-8'>
         <meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=yes'>
         <title>$title</title>
-        <link rel='stylesheet' type='text/css' href='../css/main.css'>
+        <link rel='stylesheet' type='text/css' href='".$path."css/main.css'>
         <link rel='shortcut icon' href='".$path."favicon.ico'>
         <script src='".$path."scripts/jquery-2.1.4.min.js'></script>
         <script src='".$path."scripts/smooth-scroll.js'></script>
