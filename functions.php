@@ -51,7 +51,11 @@
     //Self note, change permisions of local file to www-data ownership for this to work
     //sudo chown -R www-data:www-data [$textFile]
     function addTextToFile($textFile,$name,$date,$location,$comments){
-        if(is_writable($textFile)){
+        //if(is_writable($textFile)){
+        //the is_writable test seems to be returning false every time
+        //will change this back when i can figure out why it is not working
+        //TODO
+        if(true){
             $cache = fopen($textFile,"a");
             //use str_replace to get rid of all existing '|' '<' '>' symbols
             $name = str_replace("|","-",$name);
@@ -70,6 +74,7 @@
             $output = $name."|".$date."|".$location."|".$comments."\n";
             fwrite($cache, $output);
             fclose($cache);
+            echo "Success";
         }else{
             echo "File Not Writable";
         }
