@@ -150,9 +150,9 @@
         $inputForm =
         "<form action='$submitPage' method='post'>
         <label for='name'>Name:</label>
-        <input type='text' name='name' id='name'>
+        <input type='text' name='name' id='name' required>
         <label for='location'>Location:</label>
-        <input type='text' name='location' id='location'>
+        <input type='text' name='location' id='location' required>
         <label for='comments'>Comments:</label>
         <input type='text' name='comments' id='comments'>
         <input type='submit' value='Submit'>

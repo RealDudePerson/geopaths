@@ -1,15 +1,30 @@
 @import 'variables'
+body
+    
 .body
-    background-color: $header-color
-    background: -moz-linear-gradient(top, $header-color 0%, $body-color 11%, $body-color 100%)
-    background: -webkit-linear-gradient(top, $header-color 0%,$body-color 11%,$body-color 100%)
-    background: linear-gradient(to bottom, $header-color 0%,$body-color 11%,$body-color 100%)
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$header-color', endColorstr='$body-color',GradientType=0 )
-.outer-wrapper
-    +outer-container()
+    background-color: #333
+    .outer-wrapper
+        background-color: #E7F1EC
+        box-shadow: 0 15px 15px #fff
+        +outer-container()
 
 .content-wrapper
     margin-left: 5%
     margin-right: 5%
     h2
         padding-top: 20px
+    form
+        margin-bottom: 80px
+    table
+        width: 100%
+        margin: 0
+        tr:nth-child(even)
+            background-color: #CCCCCC
+        tr
+            td,th
+                padding-left: 5px
+        +media(540px)
+            width: 80%
+            margin-right: auto
+            margin-left: auto
+        margin-bottom: 50px

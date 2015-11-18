@@ -362,13 +362,10 @@ picture {
 
 .footer {
   text-align: center;
-  height: 30px;
+  height: 50px;
   padding-top: 5px;
-  background-color: #FF9F9F;
-  background: -moz-linear-gradient(top, #9cd9ff 0%, #FF9F9F 20%, #FF9F9F 100%);
-  background: -webkit-linear-gradient(top, #9cd9ff 0%, #FF9F9F 20%, #FF9F9F 100%);
-  background: linear-gradient(to bottom, #9cd9ff 0%, #FF9F9F 20%, #FF9F9F 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$body-color', endColorstr='$footer-color',GradientType=0 ); }
+  background-color: #333;
+  color: white; }
 
 .header {
   width: 100%;
@@ -396,25 +393,37 @@ picture {
   height: 35px; }
 
 .body {
-  background-color: #96e8b1;
-  background: -moz-linear-gradient(top, #96e8b1 0%, #9cd9ff 11%, #9cd9ff 100%);
-  background: -webkit-linear-gradient(top, #96e8b1 0%, #9cd9ff 11%, #9cd9ff 100%);
-  background: linear-gradient(to bottom, #96e8b1 0%, #9cd9ff 11%, #9cd9ff 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$header-color', endColorstr='$body-color',GradientType=0 ); }
-
-.outer-wrapper {
-  max-width: 68em;
-  margin-left: auto;
-  margin-right: auto; }
-  .outer-wrapper::after {
-    clear: both;
-    content: "";
-    display: table; }
+  background-color: #333; }
+  .body .outer-wrapper {
+    background-color: #E7F1EC;
+    box-shadow: 0 15px 15px #fff;
+    max-width: 68em;
+    margin-left: auto;
+    margin-right: auto; }
+    .body .outer-wrapper::after {
+      clear: both;
+      content: "";
+      display: table; }
 
 .content-wrapper {
   margin-left: 5%;
   margin-right: 5%; }
   .content-wrapper h2 {
     padding-top: 20px; }
+  .content-wrapper form {
+    margin-bottom: 80px; }
+  .content-wrapper table {
+    width: 100%;
+    margin: 0;
+    margin-bottom: 50px; }
+    .content-wrapper table tr:nth-child(even) {
+      background-color: #CCCCCC; }
+    .content-wrapper table tr td, .content-wrapper table tr th {
+      padding-left: 5px; }
+    @media screen and (min-width: 540px) {
+      .content-wrapper table {
+        width: 80%;
+        margin-right: auto;
+        margin-left: auto; } }
 
 /*# sourceMappingURL=main.css.map */
