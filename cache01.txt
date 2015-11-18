@@ -1,0 +1,6 @@
+Name|Date|Location|Comments
+Daniel|time|place|thing
+wut|is|this|thing
+wut|is|this|thing
+Daniel|17-11-2015 19:59:59|around fallbrook ca|No comment
+Daniel|17-11-2015 20:01:48|place|d

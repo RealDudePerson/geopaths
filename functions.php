@@ -50,24 +50,23 @@
     
     //Self note, change permisions of local file to www-data ownership for this to work
     //sudo chown -R www-data:www-data [$textFile]
-    function addTextToFile($textFile,$name,$date,$location,$comments){
+    function addTextToFile($textFile,$name,$location,$comments){
         //if(is_writable($textFile)){
         //the is_writable test seems to be returning false every time
         //will change this back when i can figure out why it is not working
         //TODO
         if(true){
+            date_default_timezone_set('America/Los_Angeles');
+            $date = date("j-n-Y H:i:s");
             $cache = fopen($textFile,"a");
             //use str_replace to get rid of all existing '|' '<' '>' symbols
             $name = str_replace("|","-",$name);
-            $date = str_replace("|","-",$date);
             $location = str_replace("|","-",$location);
             $comments = str_replace("|","-",$comments);
             $name = str_replace("<","",$name);
-            $date = str_replace("<","",$date);
             $location = str_replace("<","",$location);
             $comments = str_replace("<","",$comments);
             $name = str_replace(">","",$name);
-            $date = str_replace(">","",$date);
             $location = str_replace(">","",$location);
             $comments = str_replace(">","",$comments);
             //build the line to insert into the text file
@@ -98,17 +97,28 @@
     }
     
     //This will print the header for the site
-    function printHeader($dir){
+    function printHeader($path){
         $output = "
     <div class='header-filler'></div>
     <div class='header'>
         <h1>QR Cache Tracker</h1>
         <ul>
-            <li><a href='#'>Home</a></li>
+            <li><a href='".$path."index.php'>Home</a></li>
         </ul>
     </div>
     ";
-    echo $output;
+    $otherHeader = "
+<header class='centered-navigation' role='banner'>
+  <div class='centered-navigation-wrapper'>
+    <a href='".$path."index.php' class='logo'>
+      <img src='".$path."icons/Simple_Globe.png' alt='Logo image'>
+    </a>
+    <h1>Geopaths</h1>
+  </div>
+</header>
+";
+    //echo $output;
+    echo $otherHeader;
     }
     
     //This will print the body
@@ -118,7 +128,12 @@
     
     //This will print the footer for the site
     function printFooter(){
-        
+        $output = "
+    <div class='footer'>
+        <p>Created by Dan Navetta | <a href='#'>View on Github</a></p>
+    </div>
+    ";
+    echo $output;
     }
     
     /**For this function you need to send the password plaintext and the hash to compare it to
@@ -136,8 +151,6 @@
         "<form action='$submitPage' method='post'>
         <label for='name'>Name:</label>
         <input type='text' name='name' id='name'>
-        <label for='date'>Date:</label>
-        <input type='text' name='date' id='date'>
         <label for='location'>Location:</label>
         <input type='text' name='location' id='location'>
         <label for='comments'>Comments:</label>

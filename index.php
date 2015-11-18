@@ -15,7 +15,8 @@
     ?>
     <div class="body">
     <div class="outer-wrapper">
-        Main Section
+    <div class="content-wrapper">
+        <h2>Cache01</h2>
         <?php
             $output = getCacheData("cache01.txt");
             if(!$output){
@@ -26,8 +27,9 @@
         ?>
     </div>
     </div>
-    <div class="footer">
-        Footer
     </div>
+    <?php
+        printFooter();
+    ?>
 </body>
 </html>

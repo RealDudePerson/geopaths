@@ -325,6 +325,41 @@ picture {
   margin: 0;
   max-width: 100%; }
 
+.centered-navigation {
+  background-color: #E7F1EC;
+  border-bottom: 1px solid #d4e6dd;
+  min-height: 60px;
+  width: 100%;
+  z-index: 9999; }
+  .centered-navigation .logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    float: left;
+    max-height: 60px;
+    padding-left: 1em; }
+    @media screen and (min-width: 1089px) {
+      .centered-navigation .logo {
+        padding-left: 0; } }
+    .centered-navigation .logo img {
+      max-height: 60px;
+      opacity: .6;
+      padding: .8em 0; }
+  .centered-navigation h1 {
+    display: inline-block;
+    margin-top: 20px;
+    margin-left: 20px;
+    font-size: 1.2em; }
+
+.centered-navigation-wrapper {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto; }
+  .centered-navigation-wrapper::after {
+    clear: both;
+    content: "";
+    display: table; }
+
 .footer {
   text-align: center;
   height: 30px;
@@ -360,6 +395,13 @@ picture {
   display: block;
   height: 35px; }
 
+.body {
+  background-color: #96e8b1;
+  background: -moz-linear-gradient(top, #96e8b1 0%, #9cd9ff 11%, #9cd9ff 100%);
+  background: -webkit-linear-gradient(top, #96e8b1 0%, #9cd9ff 11%, #9cd9ff 100%);
+  background: linear-gradient(to bottom, #96e8b1 0%, #9cd9ff 11%, #9cd9ff 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$header-color', endColorstr='$body-color',GradientType=0 ); }
+
 .outer-wrapper {
   max-width: 68em;
   margin-left: auto;
@@ -369,11 +411,10 @@ picture {
     content: "";
     display: table; }
 
-.body {
-  background-color: #96e8b1;
-  background: -moz-linear-gradient(top, #96e8b1 0%, #9cd9ff 11%, #9cd9ff 100%);
-  background: -webkit-linear-gradient(top, #96e8b1 0%, #9cd9ff 11%, #9cd9ff 100%);
-  background: linear-gradient(to bottom, #96e8b1 0%, #9cd9ff 11%, #9cd9ff 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$header-color', endColorstr='$body-color',GradientType=0 ); }
+.content-wrapper {
+  margin-left: 5%;
+  margin-right: 5%; }
+  .content-wrapper h2 {
+    padding-top: 20px; }
 
 /*# sourceMappingURL=main.css.map */
