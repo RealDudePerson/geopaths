@@ -1,7 +1,2 @@
 Name|Date|Location|Comments
-Daniel|time|place|thing
-wut|is|this|thing
-wut|is|this|thing
-Daniel|17-11-2015 19:59:59|around fallbrook ca|No comment
-Daniel|17-11-2015 20:01:48|place|d
-DangerD|18-11-2015 19:29:04|33.390081699999996 -117.23727509999999|there are no enters
+Daniel|19-11-2015 15:36:49|Fallbrook, CA 92028, USA|First test after name change
