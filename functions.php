@@ -101,7 +101,7 @@
         $output = "
     <div class='header-filler'></div>
     <div class='header'>
-        <h1>QR Cache Tracker</h1>
+        <h1>QR Token Tracker</h1>
         <ul>
             <li><a href='".$path."index.php'>Home</a></li>
         </ul>
@@ -121,9 +121,9 @@
     echo $otherHeader;
     }
     
-    //This will print the text to display on a cache found page
+    //This will print the text to display on a token found page
     function printFindersText(){
-        $output = "<p>Congrats on finding and scanning this small QR code. If you would like you can enter your information below and it will be entered into the find log. You can put your name, where you found it (city,cache name), and any comments you want to share. After you enter your information you can click the globe at the top of the screen to view where it has been.</p>
+        $output = "<p>Congrats on finding and scanning this small QR code. If you would like you can enter your information below and it will be entered into the find log. You can put your name and any comments you want to share. After you enter your information and click send you can click the globe at the top of the screen to view where the token has been.</p>
         <p>If you want to share the location of where you found the Geopath token, please allow your browser to share location in the pop up. If you do not allow location, you can still log your name and any comments.</p>";
         echo $output;
     }   
