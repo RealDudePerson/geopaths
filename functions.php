@@ -155,6 +155,7 @@
         <input type='text' name='location' id='location' required>
         <label for='comments'>Comments:</label>
         <input type='text' name='comments' id='comments'>
+        <input type='text' name='coords' id='coords' value='n/a' style='display:hidden'>
         <input type='submit' value='Submit'>
         </form>
         ";

@@ -8,7 +8,7 @@
     
     $password = $_GET['password'];
     //change the hash for every new cache page
-    $passIsCorrect = testPassword($password,'$2y$10$uxQtb6qRwmibv0UiiqCVaOin6s3ePnNzNS61RBbD/0PlFcWbEO0OG');
+    $passIsCorrect = testPassword($password,'$2y$10$JaW.5tOlfGFZEOSqi8Lb.OrJrS2o5xkbFOy9CJDn1eEYZerAJslsq');
     
     printHead("$cacheNum Found","../");
 ?>
@@ -45,5 +45,6 @@
     <?php
         printFooter();
     ?>
+    <script src="../scripts/getLocation.js"></script>
 </body>
 </html>
