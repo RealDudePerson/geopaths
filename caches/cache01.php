@@ -21,7 +21,6 @@
     <div class="content-wrapper">
     <h2>Cache01</h2>
     <?php
-        printFindersText();
         //sleep(1) delays the page for one second before testing the password
         //I am no genius but I feel like this will mitigate spam from trying to
         //"brute-force" the correct password
@@ -33,10 +32,11 @@
                 $comments = $_POST['comments'];
                 addTextToFile("../$cacheNum.txt",$name,$location,$comments);
             }else{
+                printFindersText();
                 displayInputForm("$cacheNum.php?password=$password");
             }
         }else{
-            echo 'incorrect password';
+            echo 'Access Denied.';
         }
     ?>
     </div>

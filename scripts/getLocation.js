@@ -4,7 +4,7 @@ $(document).ready(function() {
   		navigator.geolocation.getCurrentPosition(function(position) {
   			var lat = position.coords.latitude;
             var lng = position.coords.longitude;
-            var url = "http://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+lng+"&sensor=true";
+            var url = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+lng+"&sensor=true";
             var address = $.ajax(url)
             .done(function(data){
                fillLocation(data.results[1].formatted_address);
