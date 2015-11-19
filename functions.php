@@ -153,7 +153,7 @@
         "<form action='$submitPage' method='post'>
         <label for='name'>Name:</label>
         <input type='text' name='name' id='name' required>
-        <input type='text' name='location' id='location' value='n/a' >
+        <input type='text' name='location' id='location' value='n/a' style='display:none'>
         <label for='comments'>Comments:</label>
         <input type='text' name='comments' id='comments'>
         <input type='submit' value='Submit'>

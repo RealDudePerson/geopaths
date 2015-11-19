@@ -9,20 +9,18 @@ $(document).ready(function() {
             .done(function(data){
                alert("success");
                alert(data.results[1].formatted_address);
+               fillLocation(data.results[1].formatted_address);
             })
             .fail(function(){
                 alert("fail");
             });
-            //alert(address.results[1].formatted_address);
 		});
 	} 
 	else {
-  		/* geolocation IS NOT available */
   		
 	}
 	
-	function fillLocation(lat, lon) {
-		var output = lat + "," + lon;
-		$("#location").val(output);
+	function fillLocation(location) {
+		$("#location").val(location);
 	}
 });
