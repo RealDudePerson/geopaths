@@ -159,8 +159,6 @@
         <input type='submit' value='Submit'>
         </form>
         <script src='../scripts/getLocation.js'></script>
-        <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAKV3LzjaaCSQ8nlpfWo8SuPcfl6Hfzb3k&callback=getLocation'
-        async defer></script>
         ";
         echo $inputForm;
     }
