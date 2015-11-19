@@ -406,6 +406,7 @@ picture {
       display: table; }
 
 .content-wrapper {
+  min-height: 80vh;
   margin-left: 5%;
   margin-right: 5%; }
   .content-wrapper h2 {
@@ -425,5 +426,8 @@ picture {
         width: 80%;
         margin-right: auto;
         margin-left: auto; } }
+
+.hidden {
+  display: none; }
 
 /*# sourceMappingURL=main.css.map */

@@ -148,14 +148,19 @@
         }
         return $returnVal;
     }
+    
+    /**This function is used to show the input form on finding pages
+     */
     function displayInputForm($submitPage){
         $inputForm =
         "<form action='$submitPage' method='post'>
         <label for='name'>Name:</label>
         <input type='text' name='name' id='name' required>
-        <input type='text' name='location' id='location' value='n/a' style='display:none'>
+        <label id='locationLabel' for='location' class='hidden'>Location:</label>
+        <input type='text' name='location' id='location' value='n/a' class='hidden'>
         <label for='comments'>Comments:</label>
         <input type='text' name='comments' id='comments'>
+        <p class='hideWhenLocated'>Your location will not be recorded. If you want to add a location please refresh and allow location.</p>
         <input type='submit' value='Submit'>
         </form>
         <script src='../scripts/getLocation.js'></script>

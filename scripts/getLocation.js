@@ -8,14 +8,14 @@ $(document).ready(function() {
             var address = $.ajax(url)
             .done(function(data){
                fillLocation(data.results[1].formatted_address);
+               $('.hideWhenLocated').hide(500);
             })
             .fail(function(){
-                alert("fail");
+                alert("Failed to get an accurate location, you can fill it out manually if you with or leave it as 'N/a'");
+                $('#location').removeClass('hidden');
+                $('#locationLabel').removeClass('hidden');
             });
 		});
-	} 
-	else {
-  		
 	}
 	
 	function fillLocation(location) {
