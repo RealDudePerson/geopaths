@@ -20,8 +20,8 @@
     <div class="outer-wrapper">
     <div class="content-wrapper">
     <h2>Cache01</h2>
-    <p>Congrats on finding and scanning this small QR code. If you would like you can enter your information below and it will be entered into the find log. You can put your name, where you found it (city,cache name), and any comments you want to share. After you enter your information you can click the globe at the top of the screen to view where it has been.</p>
     <?php
+        printFindersText();
         //sleep(1) delays the page for one second before testing the password
         //I am no genius but I feel like this will mitigate spam from trying to
         //"brute-force" the correct password
@@ -45,6 +45,5 @@
     <?php
         printFooter();
     ?>
-    <script src="../scripts/getLocation.js"></script>
 </body>
 </html>

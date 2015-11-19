@@ -11,7 +11,7 @@ $(document).ready(function() {
 	}
 	
 	function fillLocation(lat, lon) {
-		output = lat + " " + lon;
-		$("#coords").val(output);
+		var output = lat + "," + lon;
+		$("#location").val(output);
 	}
 });
