@@ -25,12 +25,16 @@
         //I am no genius but I feel like this will mitigate spam from trying to
         //"brute-force" the correct password
         sleep(1);
+        //TODO if pass is incorrect, then maybe display the log table.
+        //that way they get something instead of access denied
         if($passIsCorrect){
             if(isset($_POST['name']) && isset($_POST['location'])){
                 $name = $_POST['name'];
                 $location = $_POST['location'];
                 $comments = $_POST['comments'];
                 addTextToFile("../$cacheNum.txt",$name,$location,$comments);
+                //TODO separate out the mail items
+                $temp = mail('dan@dannavetta.com', $cacheNum.' finder notification', "New find on $cacheNum.", "From: geopaths@dannavetta.com");
             }else{
                 printFindersText();
                 displayInputForm("$cacheNum.php?password=$password");
