@@ -132,7 +132,7 @@
     function printFooter(){
         $output = "
     <div class='footer'>
-        <p>Created by Dan Navetta | <a href='#'>View on Github</a></p>
+        <p>Created by Dan Navetta | <a href='https://github.com/idiotonuni/geopaths'>View on Github</a></p>
     </div>
     ";
     echo $output;
