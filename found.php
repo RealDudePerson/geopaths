@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <?php
-    require "../functions.php";
+    require "functions.php";
     
     $password = $_GET['password'];
     $passIsCorrectArray = testPassword($password);
@@ -9,11 +9,11 @@
     //cacheNum is a variable holding the string for whatever number token it is change for each file
     $cacheNum = $passIsCorrectArray[1];
     
-    printHead("$cacheNum Found","../");
+    printHead("$cacheNum Found","");
 ?>
 <body>
     <?php
-        printHeader("../");
+        printHeader("");
     ?>
     <div class="body">
     <div class="outer-wrapper">
@@ -31,7 +31,7 @@
                 $name = $_POST['name'];
                 $location = $_POST['location'];
                 $comments = $_POST['comments'];
-                addTextToFile("../$cacheNum.txt",$name,$location,$comments);
+                addTextToFile("tokens/$cacheNum.txt",$name,$location,$comments);
                 //TODO separate out the mail items
                 $temp = mail('dan@dannavetta.com', $cacheNum.' finder notification', "New find on $cacheNum.", "From: geopaths@dannavetta.com");
             }else{

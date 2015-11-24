@@ -1,4 +1,5 @@
 <?php
+//This function returns an array of hashes to check against the user inputted pass
 function getHashes(){
     $hashes = array(
            'token01' => '$2y$10$JaW.5tOlfGFZEOSqi8Lb.OrJrS2o5xkbFOy9CJDn1eEYZerAJslsq',

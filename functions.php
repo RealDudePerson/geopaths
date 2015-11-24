@@ -138,8 +138,9 @@
     echo $output;
     }
     
-    /**For this function you need to send the password plaintext and the hash to compare it to
-     *If they password matches, then the function returns true, else returns false
+    /**For this function you need to send the password plaintext compare it to the hashes stored
+     *in the pass_hashes file. To get the hashes out of the pass_hashes you must call getHashes()
+     *The function returns an array in the format array(BOOL $returnVal, string $tokenName)
      */
     function testPassword($password){
         //get the hash data drom the pass_hashes file
@@ -170,7 +171,7 @@
         <p class='hideWhenLocated'>Your location will not be recorded. If you want to add a location please refresh and allow location.</p>
         <input type='submit' value='Submit'>
         </form>
-        <script src='../scripts/getLocation.js'></script>
+        <script src='scripts/getLocation.js'></script>
         ";
         echo $inputForm;
     }
