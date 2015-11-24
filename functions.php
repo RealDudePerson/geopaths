@@ -141,12 +141,19 @@
     /**For this function you need to send the password plaintext and the hash to compare it to
      *If they password matches, then the function returns true, else returns false
      */
-    function testPassword($password,$hash){
+    function testPassword($password){
+        //get the hash data drom the pass_hashes file
+        require_once "pass_hashes.php";
+        $hashArray = getHashes();
         $returnVal = false;
-        if(password_verify($password,$hash)){
-            $returnVal = true;
+        $tokenName = "";
+        foreach($hashArray as $key => $hash){
+            if(password_verify($password,$hash)){
+                $returnVal = true;
+                $tokenName = $key;
+            }
         }
-        return $returnVal;
+        return array($returnVal,$tokenName);
     }
     
     /**This function is used to show the input form on finding pages

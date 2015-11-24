@@ -1,0 +1,2 @@
+Name|Date|Location|Comments
+Daniel|23-11-2015 19:59:01|Fallbrook, CA 92028, USA|This should create a text file
