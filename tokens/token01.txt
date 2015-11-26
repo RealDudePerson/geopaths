@@ -1,4 +1,4 @@
 Name|Date|Location|Comments
-Daniel|19-11-2015 15:36:49|Fallbrook, CA 92028, USA|First test after name change
-Daniel|23-11-2015 20:00:15|Fallbrook, CA 92028, USA|This is wut
-Daniel|23-11-2015 20:15:57|Fallbrook, CA 92028, USA|This should create a text file
+brad|19-11-2015 15:36:49|Fallbrook, CA 92028, USA|First test after name change
+aaron|23-11-2015 20:00:15|Fallbrook, CA 92028, USA|This is wut
+chantelle|23-11-2015 20:15:57|Fallbrook, CA 92028, USA|This should create a text file

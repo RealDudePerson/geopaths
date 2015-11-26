@@ -7,6 +7,8 @@
     <?php
         printHead("Geocaching","");
     ?>
+    <script src='scripts/datatables.min.js'></script>
+    
 </head>
 
 <body>

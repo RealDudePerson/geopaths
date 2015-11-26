@@ -7,7 +7,7 @@
         $cache = fopen($textFile, "r");
         if($cache){
             //start building the output with an opening table element
-            $output = "<table>\n<tbody>\n";
+            $output = "<table class='token-table'>\n";
             //while not at the end of the file
             $loopCounter = 0;
             while(!feof($cache)) {
@@ -18,6 +18,12 @@
                 if(!($line == "")){
                     //set $lineExploded to the array returned from exploding $line
                     $line = explode('|',$line);
+                    //if $loopCounter==0 add thead
+                    if($loopCounter==0){
+                        $output .= "<thead>\n";
+                    }elseif($loopCounter==1){
+                        $output .= "<tbody>\n";
+                    }
                     //add a <tr> element to $output
                     $output .= "<tr>\n";
                     //add all the td elements
@@ -34,6 +40,10 @@
                     }
                     //$close off the table row element </tr>
                     $output .= "</tr>\n";
+                    //close off thead
+                    if($loopCounter==0){
+                        $output .= "</thead>\n";
+                    }
                     //increment loop counter
                     $loopCounter .= 1;
                 }                
