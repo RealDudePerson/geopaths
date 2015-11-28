@@ -67,7 +67,7 @@
         //TODO
         if(true){
             date_default_timezone_set('America/Los_Angeles');
-            $date = date("j-n-Y H:i:s");
+            $date = date("n-j-Y H:i:s");
             $cache = fopen($textFile,"a");
             //use str_replace to get rid of all existing '|' '<' '>' symbols
             $name = str_replace("|","-",$name);
@@ -83,7 +83,7 @@
             $output = $name."|".$date."|".$location."|".$comments."\n";
             fwrite($cache, $output);
             fclose($cache);
-            echo "Success";
+            echo "Success, view the log <a href='index.php'>here</a>.";
         }else{
             echo "File Not Writable";
         }
