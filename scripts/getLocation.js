@@ -12,8 +12,8 @@ $(document).ready(function() {
             })
             .fail(function(){
                 alert("Failed to get an accurate location, you can fill it out manually if you with or leave it as 'N/a'");
-                $('#location').removeClass('hidden');
-                $('#locationLabel').removeClass('hidden');
+                //$('#location').removeClass('hidden');
+                //$('#locationLabel').removeClass('hidden');
             });
 		});
 	}

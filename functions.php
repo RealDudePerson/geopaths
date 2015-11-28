@@ -175,7 +175,7 @@
         <label for='name'>Name:</label>
         <input type='text' name='name' id='name' required>
         <label id='locationLabel' for='location' class='hidden'>Location:</label>
-        <input type='text' name='location' id='location' value='n/a' class='hidden'>
+        <input type='text' class='hidden' name='location' id='location' value='n/a'>
         <label for='comments'>Comments:</label>
         <input type='text' name='comments' id='comments'>
         <p class='hideWhenLocated'>Your location will not be recorded. If you want to add a location please refresh and allow location.</p>

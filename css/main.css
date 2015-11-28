@@ -7555,6 +7555,9 @@ table.dataTable > tbody > tr.child ul {
   display: block;
   height: 35px; }
 
+form .hidden {
+  display: none; }
+
 .body {
   background-color: #333;
   margin-top: -5px;
@@ -7591,8 +7594,5 @@ table.dataTable > tbody > tr.child ul {
     padding-top: 20px; }
   .content-wrapper form {
     margin-bottom: 80px; }
-
-.hidden {
-  display: none; }
 
 /*# sourceMappingURL=main.css.map */
