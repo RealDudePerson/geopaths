@@ -58,6 +58,8 @@
         return $output;
     }
     
+    /*This function takes a textFile, name, location, and comments and adds them to the text file
+     */
     //Self note, change permisions of local file to www-data ownership for this to work
     //sudo chown -R www-data:www-data [$textFile]
     function addTextToFile($textFile,$name,$location,$comments){
@@ -89,7 +91,8 @@
         }
     }
     
-    //This will print the html head
+    /*This function will print the html head
+     */
     function printHead($title,$path){
         $htmlHead =
 "   <head>
@@ -106,18 +109,10 @@
         echo $htmlHead;
     }
     
-    //This will print the header for the site
+    /*This function will print the header for the site
+     */
     function printHeader($path){
-        $output = "
-    <div class='header-filler'></div>
-    <div class='header'>
-        <h1>QR Token Tracker</h1>
-        <ul>
-            <li><a href='".$path."index.php'>Home</a></li>
-        </ul>
-    </div>
-    ";
-    $otherHeader = "
+    $output = "
 <header class='centered-navigation' role='banner'>
   <div class='centered-navigation-wrapper'>
     <a href='".$path."index.php' class='logo'>
@@ -127,18 +122,19 @@
   </div>
 </header>
 ";
-    //echo $output;
-    echo $otherHeader;
+    echo $output;
     }
     
-    //This will print the text to display on a token found page
+    /*This function will print the text to display on a token found page
+     */
     function printFindersText(){
         $output = "<p>Congrats on finding and scanning this small QR code. If you would like you can enter your information below and it will be entered into the find log. You can put your name and any comments you want to share. After you enter your information and click send you can click the globe at the top of the screen to view where the token has been.</p>
         <p>If you want to share the location of where you found the Geopath token, please allow your browser to share location in the pop up. If you do not allow location, you can still log your name and any comments.</p>";
         echo $output;
     }   
     
-    //This will print the footer for the site
+    /**This function will print the footer for the site
+     */
     function printFooter(){
         $output = "
     <div class='footer'>
