@@ -87,7 +87,7 @@
             fclose($cache);
             echo "Success, view the log <a href='index.php'>here</a>.";
         }else{
-             $myfile = fopen($textFile, "w")
+             $myfile = fopen($textFile, "w");
              $output = "Name|Date|Location|Comments";
              fwrite($myfile, $output);
              fclose($cache);
