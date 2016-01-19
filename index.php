@@ -38,6 +38,15 @@
                 echo $output;
             }
         ?>
+        <h2>Token04</h2>
+        <?php
+            $output = getCacheData("tokens/token04.txt");
+            if(!$output){
+                echo "No file exists";
+            }else{
+                echo $output;
+            }
+        ?>
     </div>
     </div>
     </div>
