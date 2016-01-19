@@ -4,6 +4,8 @@
     require "functions.php";
     
     $password = $_GET['password'];
+    //testPassword() returns an array, the first object in the array is a bool
+    //the second is the cacheNumber
     $passIsCorrectArray = testPassword($password);
     $passIsCorrect = $passIsCorrectArray[0];
     //cacheNum is a variable holding the string for whatever number token it is change for each file
