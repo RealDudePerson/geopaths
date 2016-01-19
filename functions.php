@@ -67,7 +67,7 @@
         //the is_writable test seems to be returning false every time
         //will change this back when i can figure out why it is not working
         //TODO
-        if(true){
+        if(file_exists($textFile)){
             date_default_timezone_set('America/Los_Angeles');
             $date = date("n-j-Y H:i:s");
             $cache = fopen($textFile,"a");
@@ -87,7 +87,11 @@
             fclose($cache);
             echo "Success, view the log <a href='index.php'>here</a>.";
         }else{
-            echo "File Not Writable";
+             $myfile = fopen($textFile, "w")
+             $output = "Name|Date|Location|Comments";
+             fwrite($myfile, $output);
+             fclose($cache);
+             addTextToFile($textFile,$name,$location,$comments);
         }
     }
     
