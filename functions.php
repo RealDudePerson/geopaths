@@ -83,7 +83,7 @@
             fclose($cache);
             echo "Success, view the log <a href='index.php'>here</a>.";
         }else{
-            $tokenNum = substr($textFile,6,7);
+            $tokenNum = substr($textFile,6,8);
             $myfile = fopen($textFile, "w");
             $newPhpFile = fopen("tokens/$tokenNum.php","w");
             $phpSetup = buildPHPFile($tokenNum);
