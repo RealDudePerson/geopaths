@@ -63,10 +63,6 @@
     //Self note, change permisions of local file to www-data ownership for this to work
     //sudo chown -R www-data:www-data [$textFile]
     function addTextToFile($textFile,$name,$location,$comments){
-        //if(is_writable($textFile)){
-        //the is_writable test seems to be returning false every time
-        //will change this back when i can figure out why it is not working
-        //TODO
         if(file_exists($textFile)){
             date_default_timezone_set('America/Los_Angeles');
             $date = date("n-j-Y H:i:s");
@@ -87,11 +83,17 @@
             fclose($cache);
             echo "Success, view the log <a href='index.php'>here</a>.";
         }else{
-             $myfile = fopen($textFile, "w");
-             $output = "Name|Date|Location|Comments\n";
-             fwrite($myfile, $output);
-             fclose($myfile);
-             addTextToFile($textFile,$name,$location,$comments);
+            $tokenNum = substr($textFile,6,7);
+            $myfile = fopen($textFile, "w");
+            $newPhpFile = fopen("tokens/$tokenNum.php","w");
+            $phpSetup = buildPHPFile($tokenNum);
+            fwrite($newPhpFile,$phpSetup);
+            fclose($newPhpFile);
+            $output = "Name|Date|Location|Comments\n";
+            fwrite($myfile, $output);
+            fclose($myfile);
+            //call this function again with the same data
+            addTextToFile($textFile,$name,$location,$comments);
         }
     }
     
@@ -167,7 +169,53 @@
         return array($returnVal,$tokenName);
     }
     
-    /**This function is used to show the input form on finding pages
+    /** This function builds the php file for a first found token
+     */
+    function buildPHPFile($tokenNum){
+        $php = "
+<?php
+    include '../functions.php';
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <?php
+        printHead('Geocaching','../');
+    ?>
+    <script src='scripts/datatables.min.js'></script>
+    
+</head>
+
+<body>
+    <?php
+        printHeader('../');
+    ?>
+    <div class='body'>
+    <div class='outer-wrapper'>
+    <div class='content-wrapper'>
+        <h2>About Geopaths</h2>
+        <p>Geopaths is my attempt at creating a tracking system for little QR tokens. The tokens are placed into existing hidden <a href='https://en.wikipedia.org/wiki/Geocaching' target='_blank'>geocaches</a>. When they are found, a user scans the code and submits some information on where they found it. The idea is to then place the token in another location, in order to see how far it can travel. Below you can see how far the first one has gone.</p>
+        <h2>$tokenNum</h2>
+        <?php
+            \$output = getCacheData('$tokenNum.txt');
+            if(!\$output){
+                echo 'No file exists';
+            }else{
+                echo \$output;
+            }
+        ?>
+    </div>
+    </div>
+    </div>
+    <?php
+        printFooter();
+    ?>
+</body>
+</html>
+        ";
+    }
+    
+    /**This function is used to show the input form on the found page
      */
     function displayInputForm($submitPage){
         $inputForm =
