@@ -17,9 +17,11 @@
         <h2>Log Find List</h2>
         <?php
             $logs = printLogList();
+            echo "<ul>";
             foreach($logs as $token){
-                echo "<a href='$token'>$token</a><br>";
+                echo "<li><a href='$token'>$token</a></li>";
             }
+            echo "</ul>";
         ?>
     </div>
     </div>
