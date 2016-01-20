@@ -57,6 +57,11 @@
         fclose($cache);
         return $output;
     }
+
+
+//*************************************************************************************************************
+
+
     
     /*This function takes a textFile, name, location, and comments and adds them to the text file
      */
@@ -81,7 +86,7 @@
             $output = $name."|".$date."|".$location."|".$comments."\n";
             fwrite($cache, $output);
             fclose($cache);
-            echo "Success, view the log <a href='index.php'>here</a>.";
+            echo "Success, view the log <a href='tokens/index.php'>here</a>.";
         }else{
             $tokenNum = substr($textFile,7,7);
             $myfile = fopen($textFile, "w");
@@ -96,6 +101,10 @@
             addTextToFile($textFile,$name,$location,$comments);
         }
     }
+
+
+//*************************************************************************************************************
+
     
     /*This function will print the html head
      */
@@ -114,6 +123,11 @@
     ";
         echo $htmlHead;
     }
+
+
+//*************************************************************************************************************
+
+
     
     /*This function will print the header for the site
      */
@@ -130,6 +144,11 @@
 ";
     echo $output;
     }
+
+
+//*************************************************************************************************************
+
+
     
     /*This function will print the text to display on a token found page
      */
@@ -150,6 +169,10 @@
     echo $output;
     }
     
+
+//*************************************************************************************************************
+
+    
     /**For this function you need to send the password plaintext compare it to the hashes stored
      *in the pass_hashes file. To get the hashes out of the pass_hashes you must call getHashes()
      *The function returns an array in the format array(BOOL $returnVal, string $tokenName)
@@ -169,6 +192,8 @@
         return array($returnVal,$tokenName);
     }
     
+//*************************************************************************************************************
+    
     /** This function builds the php file for a first found token
      */
     function buildPHPFile($tokenNum){
@@ -178,13 +203,9 @@
 ?>
 <!DOCTYPE html>
 <html>
-<head>
-    <?php
-        printHead('Geocaching','../');
-    ?>
-    <script src='scripts/datatables.min.js'></script>
-    
-</head>
+<?php
+    printHead('$tokenNum Log','../');
+?>
 
 <body>
     <?php
@@ -205,6 +226,7 @@
     </div>
     </div>
     </div>
+    <script src='../scripts/datatables.min.js'></script>
     <?php
         printFooter();
     ?>
@@ -214,6 +236,10 @@
         return $php;
     }
     
+
+//*************************************************************************************************************
+
+
     /**This function is used to show the input form on the found page
      */
     function displayInputForm($submitPage){
@@ -232,4 +258,14 @@
         ";
         echo $inputForm;
     }
+    
+    
+//*************************************************************************************************************
+
+
+    function printLogList(){
+        $files = glob("token*.php");
+        return $files;
+    }
+
 ?>
