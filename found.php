@@ -34,7 +34,7 @@
                 $location = $_POST['location'];
                 $comments = $_POST['comments'];
                 addTextToFile("tokens/$cacheNum.txt",$name,$location,$comments);
-                $linkToLog = "https://dannavetta.com/geopaths/tokens/".substr($cacheNum,7,7)."php";
+                $linkToLog = "https://dannavetta.com/geopaths/tokens/".$cacheNum.".php";
                 $emailAddress = "dan@dannavetta.com";
                 $emailBodyText = "$name found $cacheNum in $location. View the log: $linkToLog";
                 $fromEmailAddress = "From: geopaths@dannavetta.com";

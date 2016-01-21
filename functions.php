@@ -86,7 +86,11 @@
             $output = $name."|".$date."|".$location."|".$comments."\n";
             fwrite($cache, $output);
             fclose($cache);
-            echo "Success, view the log <a href='tokens/index.php'>here</a>.";
+            echo "<h3>Success</h3> <p>View the log <a href='tokens/index.php'>here</a>.</p>
+            <h3>What is next?</h3>
+            <p>In order to keep the token on the move you should place it in a new geocache as soon as you can! The sooner it is available the sooner the next person can log it!</p>
+            <p>If the token seems damaged or needs to be replaced for any reason please contact me here: <a href='https://dannavetta.com#scroll4'>dannavetta.com</a></p>
+            ";
         }else{
             $tokenNum = substr($textFile,7,7);
             $myfile = fopen($textFile, "w");
