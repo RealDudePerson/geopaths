@@ -34,8 +34,11 @@
                 $location = $_POST['location'];
                 $comments = $_POST['comments'];
                 addTextToFile("tokens/$cacheNum.txt",$name,$location,$comments);
-                //TODO separate out the mail items
-                $temp = mail('dan@dannavetta.com', $cacheNum.' finder notification', "New find on $cacheNum.", "From: geopaths@dannavetta.com");
+                $linkToLog = "https://dannavetta.com/geopaths/tokens/".substr($cacheNum,7,7)."php";
+                $emailAddress = "dan@dannavetta.com";
+                $emailBodyText = "$name found $cacheNum in $location. View the log: $linkToLog";
+                $fromEmailAddress = "From: geopaths@dannavetta.com";
+                $temp = mail($emailAddress, $name." found ".$cacheNum, $emailBodyText, $fromEmailAddress);
             }else{
                 printFindersText();
                 displayInputForm("found.php?password=$password");
