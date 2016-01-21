@@ -255,7 +255,7 @@
         <input type='text' class='hidden' name='location' id='location' value='n/a'>
         <label for='comments'>Comments:</label>
         <input type='text' name='comments' id='comments'>
-        <p class='hideWhenLocated'>Your location will not be recorded. If you want to add a location please refresh and allow location.</p>
+        <p class='hideWhenLocated'>Waiting for location...if this message does not disapear, refresh to try again.</p>
         <input type='submit' value='Submit'>
         </form>
         <script src='scripts/getLocation.js'></script>

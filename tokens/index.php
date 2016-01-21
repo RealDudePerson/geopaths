@@ -19,7 +19,8 @@
             $logs = printLogList();
             echo "<ul>";
             foreach($logs as $token){
-                echo "<li><a href='$token'>$token</a></li>";
+                $tokenSubStr = substr($token,0,7);
+                echo "<li><a href='$token'>$tokenSubStr</a></li>";
             }
             echo "</ul>";
         ?>
