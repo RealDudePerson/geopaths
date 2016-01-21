@@ -268,7 +268,7 @@
 
 
     function printLogList(){
-        $files = glob("token*.php");
+        $files = glob("Token*.php");
         return $files;
     }
 
