@@ -17,11 +17,13 @@
         <h2>Log Find List</h2>
         <?php
             $logs = printLogList();
-            if(count($logs)>0){
+            //count will always be at least one because of index.php
+            if(count($logs)>1){
                 echo "<ul>";
                 foreach($logs as $token){
-                    $tokenSubStr = substr($token,0,7);
-                    echo "<li><a href='$token'>$tokenSubStr</a></li>";
+                    $token = str_replace(".php","",$token);
+                    if($token!="index")
+                        echo "<li><a href='$token'>$token</a></li>";
                 }
                 echo "</ul>";
             }else{

@@ -67,7 +67,7 @@
      */
     //Self note, change permisions of local file to www-data ownership for this to work
     //sudo chown -R www-data:www-data [$textFile]
-    function addTextToFile($textFile,$name,$location,$comments){
+    function addTextToFile($textFile,$name,$location,$comments,$tokenNum){
         if(file_exists($textFile)){
             date_default_timezone_set('America/Los_Angeles');
             $date = date("n-j-Y H:i:s");
@@ -92,7 +92,7 @@
             <p>If the token seems damaged or needs to be replaced for any reason please contact me here: <a href='https://dannavetta.com#scroll4'>dannavetta.com</a></p>
             ";
         }else{
-            $tokenNum = substr($textFile,7,7);
+            //$tokenNum = substr($textFile,7,7);
             $myfile = fopen($textFile, "w");
             $newPhpFile = fopen("tokens/$tokenNum.php","w");
             $phpSetup = buildPHPFile($tokenNum);
@@ -268,7 +268,7 @@
 
 
     function printLogList(){
-        $files = glob("Token*.php");
+        $files = glob("*.php");
         return $files;
     }
 
