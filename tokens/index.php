@@ -17,12 +17,16 @@
         <h2>Log Find List</h2>
         <?php
             $logs = printLogList();
-            echo "<ul>";
-            foreach($logs as $token){
-                $tokenSubStr = substr($token,0,7);
-                echo "<li><a href='$token'>$tokenSubStr</a></li>";
+            if(count($logs)>0){
+                echo "<ul>";
+                foreach($logs as $token){
+                    $tokenSubStr = substr($token,0,7);
+                    echo "<li><a href='$token'>$tokenSubStr</a></li>";
+                }
+                echo "</ul>";
+            }else{
+                echo "<p>Nobody has found anyhing yet! Check back again soon to see where things have been!</p>";
             }
-            echo "</ul>";
         ?>
     </div>
     </div>
