@@ -1,8 +1,8 @@
 $(document).ready(function() {
     if ("geolocation" in navigator) {
   		/* geolocation is available */
-        $(".submit").prop("disabled",true);
   		navigator.geolocation.getCurrentPosition(function(position) {
+            $(".submit").prop("disabled",true);
   			var lat = position.coords.latitude;
             var lng = position.coords.longitude;
             var url = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+lng+"&sensor=true";
