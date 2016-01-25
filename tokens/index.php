@@ -21,9 +21,9 @@
             if(count($logs)>1){
                 echo "<ul>";
                 foreach($logs as $token){
-                    $token = str_replace(".php","",$token);
-                    if($token!="index")
-                        echo "<li><a href='$token'>$token</a></li>";
+                    $tokenName = str_replace(".php","",$token);
+                    if($token!="index.php")
+                        echo "<li><a href='$token'>$tokenName</a></li>";
                 }
                 echo "</ul>";
             }else{
