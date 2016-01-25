@@ -1,6 +1,7 @@
 $(document).ready(function() {
     if ("geolocation" in navigator) {
   		/* geolocation is available */
+        $(".submit").prop("disabled",true);
   		navigator.geolocation.getCurrentPosition(function(position) {
   			var lat = position.coords.latitude;
             var lng = position.coords.longitude;
@@ -13,14 +14,13 @@ $(document).ready(function() {
                     if (!(locationArray[i].types.indexOf("postal_code")<0)) {
                         fillLocation(locationArray[i].formatted_address);
                         $('.hideWhenLocated').hide(500);
+                        $(".submit").prop("disabled",false);
                         break;
                     }
                }
             })
             .fail(function(){
-                alert("Failed to get an accurate location, you can fill it out manually if you with or leave it as 'N/a'");
-                //$('#location').removeClass('hidden');
-                //$('#locationLabel').removeClass('hidden');
+                $(".submit").prop("disabled",false);
             });
 		});
 	}

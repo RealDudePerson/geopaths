@@ -256,7 +256,7 @@
         <label for='comments'>Comments:</label>
         <input type='text' name='comments' id='comments'>
         <p class='hideWhenLocated'>Waiting for location...if this message does not disapear, refresh to try again.</p>
-        <input type='submit' value='Submit'>
+        <input type='submit' value='Submit' class='submit'>
         </form>
         <script src='scripts/getLocation.js'></script>
         ";
