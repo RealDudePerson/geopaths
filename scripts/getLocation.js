@@ -28,4 +28,7 @@ $(document).ready(function() {
 	function fillLocation(location) {
 		$("#location").val(location);
 	}
+    setTimeout(function(){
+            $(".submit").prop("disabled",false);
+        }, 10000)
 });
