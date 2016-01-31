@@ -13,7 +13,7 @@
             while(!feof($cache)) {
                 //set $line to the next line in the file
                 $line = fgets($cache);
-                
+
                 //if the line is blank then do nothing
                 if(!($line == "")){
                     //set $lineExploded to the array returned from exploding $line
@@ -46,7 +46,7 @@
                     }
                     //increment loop counter
                     $loopCounter .= 1;
-                }                
+                }
             }
             //close of the table element </table>
             $output .= "</tbody>\n</table>\n";
@@ -59,10 +59,51 @@
     }
 
 
-//*************************************************************************************************************
+
+/*************************************************************************************************************/
+
+    if(isset($_GET['getTokenLocations']) && isset($_GET['tokenName'])){
+        if($_GET['getTokenLocations']=="true"){
+            $textFile = "tokens/".$_GET['tokenName'].".txt";
+            $locations = getTokenLocations($textFile);
+            header('Content-Type: application/json');
+            echo $locations;
+        }
+    }
+
+    function getTokenLocations($textFile){
+        $token = fopen($textFile, "r");
+        $output = array();
+        if($token){
+            $loopCounter = 0;
+            while(!feof($token)) {
+                //set $line to the next line in the file
+                $line = fgets($token);
+                if(!($line == "")){
+                    $line = explode('|',$line);
+                    //TODO FIX THIS FORMAT
+                    if(!($line[2] == "n/a") && $loopCounter > 0){
+                        // $output .= $line[2]; //add the location to the output
+                        $output[] = $line[2];
+                    }
+                }
+                $loopCounter .= 1;
+            }
+        }else{ //if the file cannot be opened then return false
+            $output = false;
+        }
+        fclose($token);
+        $outputString = '{"locations":';
+        $outputString .= json_encode($output);
+        $outputString .= '}';
+        return $outputString;
+    }
 
 
-    
+/*************************************************************************************************************/
+
+
+
     /*This function takes a textFile, name, location, and comments and adds them to the text file
      */
     //Self note, change permisions of local file to www-data ownership for this to work
@@ -107,9 +148,9 @@
     }
 
 
-//*************************************************************************************************************
+/*************************************************************************************************************/
 
-    
+
     /*This function will print the html head
      */
     function printHead($title,$path){
@@ -129,10 +170,10 @@
     }
 
 
-//*************************************************************************************************************
+/*************************************************************************************************************/
 
 
-    
+
     /*This function will print the header for the site
      */
     function printHeader($path){
@@ -150,18 +191,18 @@
     }
 
 
-//*************************************************************************************************************
+/*************************************************************************************************************/
 
 
-    
+
     /*This function will print the text to display on a token found page
      */
     function printFindersText(){
         $output = "<p>Congrats on finding and scanning this small QR code. If you would like you can enter your information below and it will be entered into the find log. You can put your name and any comments you want to share. After you enter your information and click send you can click the globe at the top of the screen to view where the token has been.</p>
         <p>If you want to share the location of where you found the Geopath token, please allow your browser to share location in the pop up. If you do not allow location, you can still log your name and any comments.</p>";
         echo $output;
-    }   
-    
+    }
+
     /**This function will print the footer for the site
      */
     function printFooter(){
@@ -172,11 +213,11 @@
     ";
     echo $output;
     }
-    
 
-//*************************************************************************************************************
 
-    
+/*************************************************************************************************************/
+
+
     /**For this function you need to send the password plaintext compare it to the hashes stored
      *in the pass_hashes file. To get the hashes out of the pass_hashes you must call getHashes()
      *The function returns an array in the format array(BOOL $returnVal, string $tokenName)
@@ -195,9 +236,9 @@
         }
         return array($returnVal,$tokenName);
     }
-    
-//*************************************************************************************************************
-    
+
+/*************************************************************************************************************/
+
     /** This function builds the php file for a first found token
      */
     function buildPHPFile($tokenNum){
@@ -234,14 +275,15 @@
     <?php
         printFooter();
     ?>
+    <script src='../scripts/getLocationsJson.js'></script>
 </body>
 </html>
         ";
         return $php;
     }
-    
 
-//*************************************************************************************************************
+
+/*************************************************************************************************************/
 
 
     /**This function is used to show the input form on the found page
@@ -262,9 +304,9 @@
         ";
         echo $inputForm;
     }
-    
-    
-//*************************************************************************************************************
+
+
+/*************************************************************************************************************/
 
 
     function printLogList(){
