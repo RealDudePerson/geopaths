@@ -268,6 +268,7 @@
                 echo \$output;
             }
         ?>
+        <div id='map'></div>
     </div>
     </div>
     </div>

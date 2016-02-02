@@ -1,4 +1,8 @@
-latLongArray = [];
+var latLongArray = [];
+var ajaxComplete = 0; //Track how many times ajax complete has been called
+var loadedMap = true;
+var firstLat;
+var firstLng;
 $(document).ready(function() {
     // url for gmaps https://maps.googleapis.com/maps/api/geocode/json?address=fallbrook&components=postal_code:92028
     //get H2 from page becuase the h1 will always be the token name
@@ -39,5 +43,38 @@ $(document).ready(function() {
     });
 });
 $(document).ajaxStop(function() {
-    alert(latLongArray);
+    if(ajaxComplete == 0){
+        ajaxComplete++;
+        alert(latLongArray);
+        initMap();
+    }else{
+        alert(ajaxComplete);
+    }
 });
+
+
+function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 3,
+    center: {lat: 0, lng: -180},
+    mapTypeId: google.maps.MapTypeId.TERRAIN
+  });
+
+  var flightPlanCoordinates = [
+    {lat: 37.772, lng: -122.214},
+    {lat: 21.291, lng: -157.821},
+    {lat: -18.142, lng: 178.431},
+    {lat: -27.467, lng: 153.027}
+  ];
+  var flightPath = new google.maps.Polyline({
+    path: latLongArray,
+    geodesic: true,
+    strokeColor: '#FF0000',
+    strokeOpacity: 1.0,
+    strokeWeight: 2
+  });
+
+  flightPath.setMap(map);
+}
+
+initMap();

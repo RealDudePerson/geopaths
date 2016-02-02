@@ -7595,4 +7595,28 @@ form .hidden {
   .content-wrapper form {
     margin-bottom: 80px; }
 
+#map {
+  height: 500px;
+  width: 100%; }
+
+#map_canvas {
+  height: 400px;
+  width: 100%; }
+
+#map_canvas img {
+  max-width: none; }
+
+#map_canvas .content {
+  padding: 0 0.5em 1em 0.5em; }
+
+#map_canvas .firstHeading {
+  font-size: 1em;
+  line-height: 1em;
+  font-weight: bold;
+  margin: 0; }
+
+#map_canvas #bodyContent p {
+  font-size: 1em;
+  margin: 0; }
+
 /*# sourceMappingURL=main.css.map */
