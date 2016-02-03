@@ -271,7 +271,7 @@
                 echo \$output;
             }
         ?>
-        <div id='map'></div>
+        <div id='map' class='map_canvas'></div>
     </div>
     </div>
     </div>

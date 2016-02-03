@@ -1,24 +1,27 @@
-#map_canvas {
+.map_canvas {
   height: 400px;
   width: 100%;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  box-shadow: 0 0 15px;
 }
 
-#map_canvas img {
+.map_canvas img {
   max-width: none; // to prevent UI control bug
 }
 
-#map_canvas .content {
+.map_canvas .content {
   padding: 0 0.5em 1em 0.5em;
 }
 
-#map_canvas .firstHeading {
+.map_canvas .firstHeading {
   font-size: 1em;
   line-height: 1em;
   font-weight: bold;
   margin: 0;
 }
 
-#map_canvas #bodyContent p {
+.map_canvas .bodyContent p {
   font-size: 1em;
   margin: 0;
 }
