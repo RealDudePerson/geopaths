@@ -72,32 +72,6 @@
     }
 
     function getTokenLocations($textFile){
-        /*$token = fopen($textFile, "r");
-        $output = array();
-        if($token){
-            $loopCounter = 0;
-            while(!feof($token)) {
-                //set $line to the next line in the file
-                $line = fgets($token);
-                if(!($line == "")){
-                    $line = explode('|',$line);
-                    //TODO FIX THIS FORMAT
-                    if(!($line[2] == "n/a") && $loopCounter > 0){
-                        // $output .= $line[2]; //add the location to the output
-                        $output[] = $line[2];
-                    }
-                }
-                $loopCounter .= 1;
-            }
-        }else{ //if the file cannot be opened then return false
-            $output = false;
-        }
-        fclose($token);
-        $outputString = '{"locations":';
-        $outputString .= json_encode($output);
-        $outputString .= '}';
-        return $outputString;*/
-
         $token = fopen($textFile, "r");
         $output = array();
         if($token){
@@ -143,14 +117,17 @@
             $name = str_replace("|","-",$name);
             $location = str_replace("|","-",$location);
             $comments = str_replace("|","-",$comments);
+            $latlng = str_replace("|","-",$latlng);
             $name = str_replace("<","",$name);
             $location = str_replace("<","",$location);
             $comments = str_replace("<","",$comments);
+            $latlng = str_replace("<","",$latlng);
             $name = str_replace(">","",$name);
             $location = str_replace(">","",$location);
             $comments = str_replace(">","",$comments);
+            $latlng = str_replace(">","",$latlng);
             //build the line to insert into the text file
-            $output = $name."|".$date."|".$location."|".$comments."\n";
+            $output = $name."|".$date."|".$location."|".$comments."|".$latlng."\n";
             fwrite($cache, $output);
             fclose($cache);
             echo "<h3>Success</h3> <p>View the log <a href='tokens/index.php'>here</a>.</p>
@@ -165,11 +142,11 @@
             $phpSetup = buildPHPFile($tokenNum);
             fwrite($newPhpFile,$phpSetup);
             fclose($newPhpFile);
-            $output = "Name|Date|Location|Comments\n";
+            $output = "Name|Date|Location|Comments|Lat Lng\n";
             fwrite($myfile, $output);
             fclose($myfile);
             //call this function again with the same data
-            addTextToFile($textFile,$name,$location,$comments,$latlng);
+            addTextToFile($textFile,$name,$location,$comments,$tokenNum,$latlng);
         }
     }
 

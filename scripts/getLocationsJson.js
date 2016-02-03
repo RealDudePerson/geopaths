@@ -1,3 +1,4 @@
+var tokenPathArrayGlobal;
 $(document).ready(function() {
     //get H2 from page becuase the h1 will always be the token name
     var tokenName = $("h2").text();
@@ -39,5 +40,9 @@ function buildCoordsObject(dataJson){
         mapCoords.lng = parseFloat(coordArray[1]);
         tokenPathArray.push(mapCoords);
     }
-    initMap(tokenPathArray);
+    tokenPathArrayGlobal = tokenPathArray;
 }
+
+$(document).ajaxStop(function(){
+    initMap(tokenPathArrayGlobal);
+})
