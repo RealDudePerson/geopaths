@@ -18,6 +18,7 @@
                 if(!($line == "")){
                     //set $lineExploded to the array returned from exploding $line
                     $line = explode('|',$line);
+                    array_pop($line); //erase the latlng from array
                     //if $loopCounter==0 add thead
                     if($loopCounter==0){
                         $output .= "<thead>\n";
