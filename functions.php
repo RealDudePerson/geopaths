@@ -72,7 +72,7 @@
     }
 
     function getTokenLocations($textFile){
-        $token = fopen($textFile, "r");
+        /*$token = fopen($textFile, "r");
         $output = array();
         if($token){
             $loopCounter = 0;
@@ -96,6 +96,32 @@
         $outputString = '{"locations":';
         $outputString .= json_encode($output);
         $outputString .= '}';
+        return $outputString;*/
+
+        $token = fopen($textFile, "r");
+        $output = array();
+        if($token){
+            $loopCounter = 0;
+            while(!feof($token)) {
+                //set $line to the next line in the file
+                $line = fgets($token);
+                if(!($line == "")){
+                    $line = explode('|',$line);
+                    //TODO FIX THIS FORMAT
+                    if(!($line[2] == "n/a") && $loopCounter > 0){
+                        // $output .= $line[2]; //add the location to the output
+                        $output[] = array($line[1],str_replace("\n","",$line[4]));
+                    }
+                }
+                $loopCounter .= 1;
+            }
+        }else{ //if the file cannot be opened then return false
+            $output = false;
+        }
+        fclose($token);
+        $outputString = '{"locations":';
+        $outputString .= json_encode($output);
+        $outputString .= '}';
         return $outputString;
     }
 
@@ -108,7 +134,7 @@
      */
     //Self note, change permisions of local file to www-data ownership for this to work
     //sudo chown -R www-data:www-data [$textFile]
-    function addTextToFile($textFile,$name,$location,$comments,$tokenNum){
+    function addTextToFile($textFile,$name,$location,$comments,$tokenNum,$latlng){
         if(file_exists($textFile)){
             date_default_timezone_set('America/Los_Angeles');
             $date = date("n-j-Y H:i:s");
@@ -143,7 +169,7 @@
             fwrite($myfile, $output);
             fclose($myfile);
             //call this function again with the same data
-            addTextToFile($textFile,$name,$location,$comments);
+            addTextToFile($textFile,$name,$location,$comments,$latlng);
         }
     }
 
@@ -273,6 +299,7 @@
     </div>
     </div>
     <script src='../scripts/datatables.min.js'></script>
+    <script async defer src='https://maps.googleapis.com/maps/api/js'></script>
     <?php
         printFooter();
     ?>
@@ -296,6 +323,7 @@
         <input type='text' name='name' id='name' required>
         <label id='locationLabel' for='location' class='hidden'>Location:</label>
         <input type='text' class='hidden' name='location' id='location' value='n/a'>
+        <input type='text' class='hidden' name='latlng' id='latlng' value='n/a'>
         <label for='comments'>Comments:</label>
         <input type='text' name='comments' id='comments'>
         <p class='hideWhenLocated'>Waiting for location...if this message does not disapear, refresh to try again.</p>

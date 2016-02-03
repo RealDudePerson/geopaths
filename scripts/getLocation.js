@@ -6,6 +6,8 @@ $(document).ready(function() {
   			var lat = position.coords.latitude;
             var lng = position.coords.longitude;
             var url = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+lng+"&sensor=true";
+            var latLngString = lat+","+lng;
+            $("#latlng").val(latLngString);
             var address = $.ajax(url)
             .done(function(data){
                //fillLocation(data.results[1].formatted_address);
@@ -24,7 +26,7 @@ $(document).ready(function() {
             });
 		});
 	}
-	
+
 	function fillLocation(location) {
 		$("#location").val(location);
 	}

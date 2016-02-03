@@ -2,7 +2,7 @@
 <html>
 <?php
     require "functions.php";
-    
+
     $password = $_GET['password'];
     //testPassword() returns an array, the first object in the array is a bool
     //the second is the cacheNumber
@@ -10,7 +10,7 @@
     $passIsCorrect = $passIsCorrectArray[0];
     //cacheNum is a variable holding the string for whatever number token it is change for each file
     $cacheNum = $passIsCorrectArray[1];
-    
+
     printHead("$cacheNum Found","");
 ?>
 <body>
@@ -33,7 +33,8 @@
                 $name = $_POST['name'];
                 $location = $_POST['location'];
                 $comments = $_POST['comments'];
-                addTextToFile("tokens/$cacheNum.txt",$name,$location,$comments,$cacheNum);
+                $latlng = $_POST['latlng'];
+                addTextToFile("tokens/$cacheNum.txt",$name,$location,$comments,$cacheNum,$latlng);
                 $linkToLog = "https://dannavetta.com/geopaths/tokens/".$cacheNum.".php";
                 $emailAddress = "dan@dannavetta.com";
                 $emailBodyText = "$name found $cacheNum in $location. View the log: $linkToLog";
