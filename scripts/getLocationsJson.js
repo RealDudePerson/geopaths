@@ -1,4 +1,5 @@
 var tokenPathArrayGlobal;
+var jsonGlobal;
 $(document).ready(function() {
     //get H2 from page becuase the h1 will always be the token name
     var tokenName = $("h2").text();
@@ -7,6 +8,7 @@ $(document).ready(function() {
         dataType: "json",
         url: getLocationNamesUrl,
         success: function(data){
+            jsonGlobal = data;
             buildCoordsObject(data);
         },
     });
@@ -35,7 +37,7 @@ function buildCoordsObject(dataJson){
     var locations = dataJson.locations;
     for(var i = 0;i < locations.length; i++){
         var mapCoords = new Object();
-        var coordArray = locations[i][1].split(",");
+        var coordArray = locations[i][0].split(",");
         mapCoords.lat = parseFloat(coordArray[0]);
         mapCoords.lng = parseFloat(coordArray[1]);
         tokenPathArray.push(mapCoords);

@@ -84,8 +84,7 @@
                     $line = explode('|',$line);
                     //TODO FIX THIS FORMAT
                     if(!($line[2] == "n/a") && $loopCounter > 0){
-                        // $output .= $line[2]; //add the location to the output
-                        $output[] = array($line[1],str_replace("\n","",$line[4]));
+                        $output[] = array(str_replace("\n","",$line[4]),$line[1],$line[0]);
                     }
                 }
                 $loopCounter .= 1;
