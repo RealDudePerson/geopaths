@@ -83,6 +83,23 @@ function toggleMapMarkers(){
                 infowindow.open(mapGlobal, this);
             });
             markerArrayGlobal.push(marker);
+            AutoCenter();
         }
     }
+}
+
+function AutoCenter() {
+	//  Create a new viewpoint bound
+	var bounds = new google.maps.LatLngBounds();
+	//  Go through each...
+    /*
+	$.each(markers, function (index, marker) {
+	       bounds.extend(marker.position);
+	});
+    */
+    for(var i=0;i<markerArrayGlobal.length;i++){
+        	bounds.extend(markerArrayGlobal[i].position);
+    }
+	//  Fit these bounds to the map
+	mapGlobal.fitBounds(bounds);
 }
