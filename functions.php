@@ -84,7 +84,7 @@
                     $line = explode('|',$line);
                     //TODO FIX THIS FORMAT
                     if(!($line[2] == "n/a") && $loopCounter > 0){
-                        $output[] = array(str_replace("\n","",$line[4]),$line[1],$line[0]);
+                        $output[] = array(str_replace("\n","",$line[4]),$line[1],$line[0],$line[3]);
                     }
                 }
                 $loopCounter .= 1;
