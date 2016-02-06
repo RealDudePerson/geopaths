@@ -2,15 +2,22 @@ $(document).ready(function() {
     if ("geolocation" in navigator) {
   		/* geolocation is available */
   		navigator.geolocation.getCurrentPosition(function(position) {
+            //disable submit button while waiting to get location
             $(".submit").prop("disabled",true);
   			var lat = position.coords.latitude;
             var lng = position.coords.longitude;
+
+            //TODO need to update this logic. Only works when a zip code it found
+
             var url = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+lng+"&sensor=true";
             var latLngString = lat+","+lng;
             $("#latlng").val(latLngString);
             var address = $.ajax(url)
+            //call google maps to try and get the city name
+            //logic should look first for zip code
+            //if no zip code is found, then search for something else
+            //possibly sublocatily something
             .done(function(data){
-               //fillLocation(data.results[1].formatted_address);
                var locationArray = data.results;
                for (i = 0;i < locationArray.length; i++) {
                     if (!(locationArray[i].types.indexOf("postal_code")<0)) {
@@ -32,5 +39,5 @@ $(document).ready(function() {
 	}
     setTimeout(function(){
             $(".submit").prop("disabled",false);
-        }, 10000)
+        }, 15000)
 });

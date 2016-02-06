@@ -1,8 +1,6 @@
 var tokenPathArrayGlobal;
 var jsonGlobal;
 var markerArrayGlobal = [];
-//TODO UPDATE MAKRERON VARIABLE TO MAKE SENSE
-var markerOn = false;
 var mapGlobal;
 $(document).ready(function() {
     //get H2 from page becuase the h1 will always be the token name
@@ -28,7 +26,7 @@ function initMap(tokenPathArray) {
   var tokenPath = new google.maps.Polyline({
     path: tokenPathArray,
     geodesic: true,
-    strokeColor: '#FF0000',
+    strokeColor: '#2ecc71',
     strokeOpacity: 1.0,
     strokeWeight: 2
   });
