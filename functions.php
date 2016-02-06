@@ -63,6 +63,9 @@
 
 /*************************************************************************************************************/
 
+/**This function is used to get json data when given a token
+*/
+
     if(isset($_GET['getTokenLocations']) && isset($_GET['tokenName'])){
         if($_GET['getTokenLocations']=="true"){
             $textFile = "tokens/".$_GET['tokenName'].".txt";
@@ -314,7 +317,8 @@
 
 /*************************************************************************************************************/
 
-
+    /**This function is used to populate the list of links for logs
+    */
     function printLogList(){
         $files = glob("*.php");
         return $files;
