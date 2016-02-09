@@ -19,14 +19,28 @@ $(document).ready(function() {
             //possibly sublocatily something
             .done(function(data){
                var locationArray = data.results;
+               var foundLocation = false;
                for (i = 0;i < locationArray.length; i++) {
                     if (!(locationArray[i].types.indexOf("postal_code")<0)) {
                         fillLocation(locationArray[i].formatted_address);
                         $('.hideWhenLocated').hide(500);
                         $(".submit").prop("disabled",false);
+                        foundLocation = true;
                         break;
                     }
-               }
+                }
+                //if postal_code type not found, look for administrative_area_level_2
+                if(foundLocation==false){
+                    for (i = 0;i < locationArray.length; i++) {
+                        if (!(locationArray[i].types.indexOf("administrative_area_level_2")<0)) {
+                            fillLocation(locationArray[i].formatted_address);
+                            $('.hideWhenLocated').hide(500);
+                            $(".submit").prop("disabled",false);
+                            foundLocation = true;
+                            break;
+                        }
+                    }
+                }
             })
             .fail(function(){
                 $(".submit").prop("disabled",false);
