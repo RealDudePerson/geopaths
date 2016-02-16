@@ -54,35 +54,31 @@ $(document).ajaxStop(function(){
 })
 
 function toggleMapMarkers(){
-    if(markerOn){
+    var locations = jsonGlobal.locations;
+    for(var i = 0; i < tokenPathArrayGlobal.length; i++){
+        var contentString = '<div id="content">'+
+  '<div id="siteNotice">'+
+  '</div>'+
+  '<h1 id="firstHeading" class="firstHeading">'+locations[i][2]+'</h1>'+
+  '<div id="bodyContent">'+
+  '<p>'+locations[i][3]+'</p>'+
+  '<p>Found on: '+locations[i][1]+'</p>'+
+  '</div>'+
+  '</div>';
 
-    }else{
-        var locations = jsonGlobal.locations;
-        for(var i = 0; i < tokenPathArrayGlobal.length; i++){
-            var contentString = '<div id="content">'+
-      '<div id="siteNotice">'+
-      '</div>'+
-      '<h1 id="firstHeading" class="firstHeading">'+locations[i][2]+'</h1>'+
-      '<div id="bodyContent">'+
-      '<p>'+locations[i][3]+'</p>'+
-      '<p>Found on: '+locations[i][1]+'</p>'+
-      '</div>'+
-      '</div>';
-
-            var marker = new google.maps.Marker({
-                position: tokenPathArrayGlobal[i],
-                map: mapGlobal,
-                title: locations[i][2],
-                html: contentString
-            });
-            var infowindow = new google.maps.InfoWindow();
-            marker.addListener('click', function() {
-                infowindow.setContent(this.html)
-                infowindow.open(mapGlobal, this);
-            });
-            markerArrayGlobal.push(marker);
-            AutoCenter();
-        }
+        var marker = new google.maps.Marker({
+            position: tokenPathArrayGlobal[i],
+            map: mapGlobal,
+            title: locations[i][2],
+            html: contentString
+        });
+        var infowindow = new google.maps.InfoWindow();
+        marker.addListener('click', function() {
+            infowindow.setContent(this.html)
+            infowindow.open(mapGlobal, this);
+        });
+        markerArrayGlobal.push(marker);
+        AutoCenter();
     }
 }
 
