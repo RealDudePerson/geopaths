@@ -827,8 +827,6 @@ form .hidden {
 
 .token-table {
   background-color: white; }
-  .token-table td:first-child, .token-table th:first-of-type {
-    width: 20%; }
   .token-table tr:nth-of-type(even) {
     background-color: #f2f2f2; }
 
