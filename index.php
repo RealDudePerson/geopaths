@@ -21,7 +21,7 @@
         <p>This has been done before.</p>
         <p>You can read about <a href='https://en.wikipedia.org/wiki/Geocoin' target="_blank">geocoins on wikipedia</a>. The Travel Bug is a &quot;trackable&quot; that can be obtained from Geocaching.com. I didn't feel like buying one so I made my own website instead. If you want to buy one instead, you can do so <a href="http://shop.geocaching.com/default/trackable-items/travel-bugs" target"_blank">here</a>.</p>
         <p><a href="http://geokrety.org/" target="_blank">Geokrety.org</a> also does essentially the same thing as Geopaths. You can register and create your own trackable there. As stated earlier I just wanted to make my own version to say that I did.</p>
-        <p>If you are thikning that you want to set up something to do this yourself, you can get the code for this project from Github. It is free and avaiable to modify and use. Check it out: <a href="https://github.com/idiotonuni/geopaths" target="_blank">github.com/idiotonuni/geopaths</a>.</p>
+        <p>If you are thinking that you want to set up something to do this yourself, you can get the code for this project from Github. It is free and avaiable to modify and use. Check it out: <a href="https://github.com/idiotonuni/geopaths" target="_blank">github.com/idiotonuni/geopaths</a>.</p>
     </div>
     </div>
     </div>
