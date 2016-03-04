@@ -1,12 +1,1 @@
-$(document).ready(function() {
-    //check if page has any tables to display
-    if($('.token-table').length){
-        $('.token-table').DataTable({
-            paging: false,
-            searching: false,
-            select: true,
-            "order": [[ 1, 'asc' ]],
-            responsive: true
-        });
-    }
-});
+$(document).ready(function(){$(".token-table").length&&$(".token-table").DataTable({paging:!1,searching:!1,select:!0,order:[[1,"asc"]],responsive:!0})});
