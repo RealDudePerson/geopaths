@@ -12,6 +12,7 @@ function getHashes(){
            'Token8' => '$2y$10$ESXvm85Hicqj2wY9WycAAuPE1SfNVWezGfpfP6bNhuKOI.ftqYr0q',
            'Token9' => '$2y$10$JdkDVo1fDS3utCV/BWwGreKE9pGzjRa0H1jx1oiB5OIJACcCT/59m',
            'Token10' => '$2y$10$GN2tZfIvw5Nep1BKK3.yz.PHxB6OGDxjGADyh0gOwo1cfLfPFBzUG',
+           'OnlookerLog' => '$2y$10$QGFiyTtcHTLYsL7jN04zR.nE.1MwVmgWEX/NTJRy55ZIz31HDDmsm',
            );
     return $hashes;
 }

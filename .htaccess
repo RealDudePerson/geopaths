@@ -1,0 +1,16 @@
+ErrorDocument 404 /404.html
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# BEGIN Expire headers  
+<ifModule mod_expires.c>  
+        ExpiresActive On  
+        ExpiresDefault "access plus 5 seconds"  
+        ExpiresByType image/x-icon "access plus 2592000 seconds"  
+        ExpiresByType image/jpeg "access plus 2592000 seconds"  
+        ExpiresByType image/png "access plus 2592000 seconds"  
+        ExpiresByType image/gif "access plus 2592000 seconds"  
+        ExpiresByType application/x-shockwave-flash "access plus 2592000 seconds"   
+</ifModule>  
+# END Expire headers  
