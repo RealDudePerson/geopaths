@@ -169,7 +169,6 @@
         <link rel='stylesheet' type='text/css' href='".$path."css/main.css'>
         <link rel='shortcut icon' href='".$path."favicon.ico'>
         <script src='".$path."scripts/jquery-2.1.4.min.js'></script>
-        <script src='".$path."scripts/smooth-scroll.js'></script>
         <script src='".$path."scripts/main.js'></script>
     </head>
     ";
@@ -315,7 +314,26 @@
         echo $inputForm;
     }
 
-
+/*************************************************************************************************************/
+/**This function is used to show the input form on the damaged page
+ */
+function displayDamagedForm($name,$email,$message){
+    if($name!="" || $email!="" || $message!=""){
+        displayErrorMessage($name,$email,$message);
+    }
+    $form = "\n
+        <form action='index.php' method='post'>\n
+        <label for='name'>Name: </label>\n
+        <input type='text' id='name' name='name' required value='$name'>\n
+        <label for='email'>Email: </label>\n
+        <input type='email' id='email' name='email' required value='$email'>\n
+        <label for='message'>Message: </label>\n
+        <textarea name='message' id='message' rows=7 required>$message</textarea>\n
+        <div class='g-recaptcha' data-sitekey='6LeZoCATAAAAAFLvYzzlgn29y_WeXLAcfRk1e5xa'></div>\n
+        <input type='submit' class='submit' value='Send'>\n
+        </form>\n";
+        echo $form;
+}
 /*************************************************************************************************************/
 
     /**This function is used to populate the list of links for logs
@@ -324,5 +342,23 @@
         $files = glob("*.php");
         return $files;
     }
+
+/*************************************************************************************************************/
+
+function getCaptchaResponse($captcha){
+    $response = false;
+    if(!$captcha){
+        $response = false;
+    }else{
+        $getResponse=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LeZoCATAAAAAK5QG9EmMbOl6aj6TKcQeD7sLACq&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR']);
+        if($getResponse.success==false){
+            $response = false;
+        }else{
+            $response = true;
+        }
+    }
+    return $response;
+}
+
 
 ?>
