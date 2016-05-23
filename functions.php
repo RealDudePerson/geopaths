@@ -317,9 +317,11 @@
 /*************************************************************************************************************/
 /**This function is used to show the input form on the damaged page
  */
+ //TODO Create display error message function to show errors for
 function displayDamagedForm($name,$email,$message){
     if($name!="" || $email!="" || $message!=""){
-        displayErrorMessage($name,$email,$message);
+      //todo update this section
+        echo "<p>Please fill out all fields.</p>";
     }
     $form = "\n
         <form action='index.php' method='post'>\n
