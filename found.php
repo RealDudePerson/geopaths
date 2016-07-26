@@ -38,7 +38,7 @@
                 $linkToLog = "https://geo-paths.com/tokens/".$cacheNum.".php";
                 $emailAddress = "danielnavetta@gmail.com";
                 $emailBodyText = "$name found $cacheNum in $location. View the log: $linkToLog";
-                $fromEmailAddress = "From: no.reply@geo-paths.com";
+                $fromEmailAddress = "From: no.reply@".$_SERVER['HTTP_HOST'];
                 $temp = mail($emailAddress, $name." found ".$cacheNum, $emailBodyText, $fromEmailAddress);
             }else{
                 printFindersText();
