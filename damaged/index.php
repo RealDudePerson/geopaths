@@ -45,7 +45,7 @@
         //after that check to see that the captcha is filled out and valid
         if($captchaResponse){
           //finally try to send the email, if it is successful then displaySuccess
-          if(mail("danielnavetta@gmail.com","Website Contact: $name",$message." \n\nFrom: $email","From: no.reply@".$domainName)){
+          if(mail("danielnavetta@gmail.com","Website Contact: $name",$message." \n\nFrom: $email","From: damaged@".$domainName)){
             echo '<p>Success. I will contact you.</p>';
           }else{
             displayDamagedForm($name,$email,$message);
