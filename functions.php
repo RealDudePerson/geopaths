@@ -170,6 +170,7 @@
         <link rel='shortcut icon' href='".$path."favicon.ico'>
         <script src='".$path."scripts/jquery-2.1.4.min.js'></script>
         <script src='".$path."scripts/main.js'></script>
+        <link rel='stylesheet' type='text/css' href='".$path."css/leaflet/leaflet.css'>
     </head>
     ";
         echo $htmlHead;
@@ -279,7 +280,7 @@
     </div>
     </div>
     <script src='../scripts/datatables.min.js'></script>
-    <script async defer src='https://maps.googleapis.com/maps/api/js'></script>
+    <script src='../css/leaflet/leaflet.js'></script>
     <?php
         printFooter();
     ?>
